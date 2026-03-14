@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ThermaCore — Heat Pump Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">ThermaCore</div>
+    <ul class="nav-links">
+      <li><a href="#benefits">How it works</a></li>
+      <li><a href="#stats">Results</a></li>
+      <li><a href="#cta">Get a quote</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-image-wrap">
+      <img src="images/hero.jpg" alt="Heat pump installation" class="hero-img" id="heroImg" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <span class="hero-label">Next-generation heating</span>
+      <h1>Cut your energy<br/><em>bills in half.</em></h1>
+      <p class="hero-sub">ThermaCore heat pump systems deliver up to 400% efficiency — keeping your home warm in winter, cool in summer, and your wallet happy year-round.</p>
+      <div class="hero-actions">
+        <a href="#cta" class="btn-primary">Get a free quote</a>
+        <a href="#benefits" class="btn-ghost">See how it works →</a>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <span class="badge-number">400<sup>%</sup></span>
+      <span class="badge-label">efficiency</span>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <section class="stats-strip" id="stats">
+    <div class="stat">
+      <span class="stat-num">12k+</span>
+      <span class="stat-desc">Homes heated</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">€820</span>
+      <span class="stat-desc">Avg. annual saving</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">48h</span>
+      <span class="stat-desc">Install time</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">25yr</span>
+      <span class="stat-desc">System lifespan</span>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits" id="benefits">
+    <div class="benefits-header">
+      <span class="section-label">Why ThermaCore</span>
+      <h2>Everything your old boiler<br/>was never able to do.</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🌡️</div>
+        <h3>Year-round comfort</h3>
+        <p>One system heats in winter and cools in summer. No separate units, no compromise.</p>
+      </div>
+      <div class="benefit-card benefit-card--accent">
+        <div class="benefit-icon">⚡</div>
+        <h3>Ultra-low running costs</h3>
+        <p>For every 1 kWh of electricity used, a ThermaCore system generates up to 4 kWh of heat.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🌱</div>
+        <h3>Zero direct emissions</h3>
+        <p>No gas, no combustion, no CO₂ at the point of use. Pair with solar and go fully carbon-free.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🔇</div>
+        <h3>Near-silent operation</h3>
+        <p>Our units run at under 40dB — quieter than a library. Your neighbours won't know it's there.</p>
+      </div>
+      <div class="benefit-card benefit-card--accent">
+        <div class="benefit-icon">🏛️</div>
+        <h3>Government subsidies</h3>
+        <p>Eligible for up to €10,000 in BAFA grants. We handle the paperwork from start to finish.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🔧</div>
+        <h3>10-year warranty</h3>
+        <p>Full parts and labour warranty included. Annual servicing available on a simple monthly plan.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="cta">
+    <div class="cta-inner">
+      <span class="section-label">Get started</span>
+      <h2>Ready to make the switch?</h2>
+      <p>Book a free, no-obligation survey with one of our engineers. We'll assess your home and give you an exact quote within 24 hours.</p>
+      <form class="cta-form" onsubmit="handleSubmit(event)">
+        <input type="text" placeholder="Your name" required />
+        <input type="email" placeholder="Email address" required />
+        <input type="tel" placeholder="Phone number" />
+        <button type="submit" class="btn-primary">Book my free survey</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">ThermaCore</div>
+    <p>© 2026 ThermaCore GmbH. All rights reserved.</p>
+    <p class="footer-sub">Installed across Germany, Austria & Switzerland.</p>
+  </footer>
+
+  <script>
+    // Staggered entrance animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.benefit-card, .stat, .cta-inner').forEach(el => {
+      observer.observe(el);
+    });
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      btn.textContent = '✓ Request received!';
+      btn.style.background = '#2a7a4b';
+      btn.disabled = true;
+    }
+  </script>
+</body>
+</html>
